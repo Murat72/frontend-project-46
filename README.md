@@ -4,6 +4,8 @@
 
 <a href="https://codeclimate.com/github/Murat72/frontend-project-46/maintainability"><img src="https://api.codeclimate.com/v1/badges/96e072f7d7190e02c33d/maintainability" /></a>
 
+<a href="https://codeclimate.com/github/Murat72/frontend-project-46/test_coverage"><img src="https://api.codeclimate.com/v1/badges/96e072f7d7190e02c33d/test_coverage" /></a>
+
 ### ИГРЫ РАЗУМА
 
 «Вычислитель отличий» — программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн сервисов, например http://www.jsondiff.com/. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменении в конфигурационных файлах.
