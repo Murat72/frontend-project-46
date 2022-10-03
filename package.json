@@ -3,6 +3,15 @@
   "type": "module",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/Murat72/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/Murat72/frontend-project-46/actions)",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "simple-git-hooks": {
+    "pre-push": "make lint"
+  },
+  "engines": {
+    "node": ">=14"
+  },
   "main": "index.js",
   "scripts": {
     "test": "npx jest"
@@ -17,9 +26,7 @@
     "url": "https://github.com/Murat72/frontend-project-46/issues"
   },
   "homepage": "https://github.com/Murat72/frontend-project-46#readme",
-  "bin": {
-    "gendiff": "bin/gendiff.js"
-  },
+ 
   "dependencies": {
     "commander": "^9.4.0",
     "lodash": "^4.17.21"
