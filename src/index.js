@@ -2,13 +2,12 @@ import _ from 'lodash';
 import fs from 'fs';
 import path from 'path';
 import process from 'process';
+import parse from './parser.js';
 
 const readFile = (filepath) => {
   const fullpath = path.resolve(process.cwd(), filepath);
   return fs.readFileSync(fullpath, 'utf-8');
 };
-
-const parsesFile = (file) => JSON.parse(file);
 
 const stringify = (value, replacer = ' ', spacesCount = 1) => {
   const iter = (currentValue, depth) => {
@@ -30,9 +29,13 @@ const stringify = (value, replacer = ' ', spacesCount = 1) => {
   return iter(value, 1);
 };
 
+const getFileFormat = (filename) => path.extname(filename).slice(1);
+
 const gendiff = (filepath1, filepath2) => {
-  const obj1 = parsesFile(readFile(filepath1));
-  const obj2 = parsesFile(readFile(filepath2));
+  const file1Format = getFileFormat(filepath1);
+  const file2Format = getFileFormat(filepath2);
+  const obj1 = parse(readFile(filepath1), file1Format);
+  const obj2 = parse(readFile(filepath2), file2Format);
   const keys = _.union(Object.keys(obj1), Object.keys(obj2));
   const sortKeys = _.sortBy(keys);
   const res = sortKeys

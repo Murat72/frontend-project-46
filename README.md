@@ -20,3 +20,7 @@
 После клонирования проекта выполнить в терминале из директории проекта следующую комманду:
 
 make install
+
+### Gendiff work example
+
+[![asciicast](https://asciinema.org/a/IHIWcGVSOVwuErPv8NKSCXFrY.svg)](https://asciinema.org/a/IHIWcGVSOVwuErPv8NKSCXFrY)
