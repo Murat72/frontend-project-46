@@ -9,7 +9,7 @@ const stringify = (data, depth) => {
   }
   const lines = Object
     .entries(data)
-    .map(([key, val]) => `${getIndent(depth)} ${key}: ${stringify(val, depth + 1)}`);
+    .map(([key, val]) => `${getIndent(depth)}  ${key}: ${stringify(val, depth + 1)}`);
     return [
       '{',
       ...lines,
