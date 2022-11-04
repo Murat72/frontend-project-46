@@ -13,11 +13,11 @@ const expectedStylish = readFile('stylish.txt');
 test('genDiffJSON', () => {
   const firstFile = getFixturePath('file1.json');
   const secondFile = getFixturePath('file2.json');
-  expect(gendiff(firstFile, secondFile)).toEqual(expectedStylish);
+  expect(gendiff(firstFile, secondFile)).toBe(expectedStylish);
 });
 
 test('genDiffYAML', () => {
   const firstFile = getFixturePath('file1.yaml');
   const secondFile = getFixturePath('file2.yml');
-  expect(gendiff(firstFile, secondFile)).toEqual(expectedStylish);
+  expect(gendiff(firstFile, secondFile)).toBe(expectedStylish);
 });
