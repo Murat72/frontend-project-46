@@ -3,56 +3,44 @@ import fs from 'fs';
 import path from 'path';
 import process from 'process';
 import parse from './parser.js';
+import stylish from './stylish.js';
 
 const readFile = (filepath) => {
   const fullpath = path.resolve(process.cwd(), filepath);
   return fs.readFileSync(fullpath, 'utf-8');
 };
 
-const stringify = (value, replacer = ' ', spacesCount = 1) => {
-  const iter = (currentValue, depth) => {
-    if (!_.isObject(currentValue)) {
-      return `${currentValue}`;
-    }
-    const indentSize = depth * spacesCount;
-    const currentIndent = replacer.repeat(indentSize);
-    const bracketIndent = replacer.repeat(indentSize - spacesCount);
-    const lines = Object
-      .entries(currentValue)
-      .map(([key, val]) => `${currentIndent}${key}: ${iter(val, depth + 1)}`);
-      return [
-      '{',
-      ...lines,
-      `${bracketIndent}}`,
-    ].join('\n');
-  };
-  return iter(value, 1);
-};
-
 const getFileFormat = (filename) => path.extname(filename).slice(1);
+
+const buildDiff = (data1, data2) => {
+  const keys = _.union(Object.keys(data1), Object.keys(data2));
+  const sortedKeys = _.sortBy(keys);
+  return sortedKeys.map((key) => {
+    if (!_.has(data1, key)) {
+      return { type: 'added', key, value: data2[key] };
+    }
+    if (!_.has(data2, key)) {
+      return { type: 'deleted', key, value: data1[key] };
+    }
+    if (_.isObject(data1[key]) && _.isObject(data2[key])) {
+      return { type: 'inserted', key, children: buildDiff(data1[key], data2[key]) };
+    }
+    if (data1[key] !== data2[key]) {
+      return {
+        type: 'changed', key, value1: data1[key], value2: data2[key],
+      };
+    }
+    return { type: 'unchanged', key, value: data1[key] };
+  });
+};
 
 const gendiff = (filepath1, filepath2) => {
   const file1Format = getFileFormat(filepath1);
   const file2Format = getFileFormat(filepath2);
-  const obj1 = parse(readFile(filepath1), file1Format);
-  const obj2 = parse(readFile(filepath2), file2Format);
-  const keys = _.union(Object.keys(obj1), Object.keys(obj2));
-  const sortKeys = _.sortBy(keys);
-  const res = sortKeys
-    .reduce((acc, key) => {
-      if (!_.has(obj1, key)) {
-        acc[`+ ${key}`] = obj2[key];
-      } else if (!_.has(obj2, key)) {
-        acc[`- ${key}`] = obj1[key];
-      } else if (obj1[key] !== obj2[key]) {
-        acc[`- ${key}`] = obj1[key];
-        acc[`+ ${key}`] = obj2[key];
-      } else {
-        acc[`  ${key}`] = obj1[key];
-      }
-      return acc;
-    },{});
-  return stringify(res);
+  const data1 = parse(readFile(filepath1), file1Format);
+  const data2 = parse(readFile(filepath2), file2Format);
+  const diffTree = buildDiff(data1, data2);
+  return stylish(diffTree);
 };
 
 export default gendiff;
