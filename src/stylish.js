@@ -38,7 +38,7 @@ const stylish = (tree) => {
           return `${getIndent(depth)}- ${key}: ${stringify(value1, depth + 1)}\n${getIndent(depth)}+ ${key}: ${stringify(value2, depth + 1)}`;
         }
         case 'unchanged': {
-          return `${getIndent(depth)}  ${key}: ${stringify(value, depth + 1)}`;
+          return `${getIndent(depth)} ${key}: ${stringify(value, depth + 1)}`;
         }
         default:
           throw new Error(`This type does not exist: ${node.type}`);
