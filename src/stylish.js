@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
 const getIndent = (depth, spaceCount = 4) => ' '.repeat(spaceCount * depth - 2);
+const getBracketsIndent = (depth, spaceCount = 4) => ' '.repeat((depth * spaceCount) - spaceCount);
 
 const stringify = (data, depth) => {
   if (!_.isObject(data)) {
@@ -12,7 +13,7 @@ const stringify = (data, depth) => {
     return [
       '{',
       ...lines,
-      `${getIndent(depth)}}`,
+      `${getBracketsIndent(depth)}}`,
     ].join('\n');
 };
 
@@ -46,7 +47,7 @@ const stylish = (tree) => {
     return [
       '{',
       ...lines,
-      `${getIndent(depth)}  }`,
+      `${getBracketsIndent(depth)}}`,
     ].join('\n');
   };
   return iter(tree, 1);
