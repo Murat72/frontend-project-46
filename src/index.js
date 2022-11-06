@@ -4,7 +4,7 @@ import path from 'path';
 import process from 'process';
 import parse from './parser.js';
 import buildDiff from './buildDiff.js';
-import format from './formatters/format.js';
+import format from './formatters/index.js';
 
 const readFile = (filepath) => {
   const fullpath = path.resolve(process.cwd(), filepath);
