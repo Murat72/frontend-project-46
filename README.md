@@ -25,6 +25,10 @@ make install
 
 [![asciicast](https://asciinema.org/a/IHIWcGVSOVwuErPv8NKSCXFrY.svg)](https://asciinema.org/a/IHIWcGVSOVwuErPv8NKSCXFrY)
 
-### Gendiff work example with nested structures
+### Gendiff work example stylish formatter with nested structures
 
 [![asciicast](https://asciinema.org/a/NYmDLAsd3jiBO0I2ZGeepbFeR.svg)](https://asciinema.org/a/NYmDLAsd3jiBO0I2ZGeepbFeR)
+
+### Gendiff work example plain formatter
+
+[![asciicast](https://asciinema.org/a/qHka5Wi4tmQKdsQ7GDlB9p83t.svg)](https://asciinema.org/a/qHka5Wi4tmQKdsQ7GDlB9p83t)
