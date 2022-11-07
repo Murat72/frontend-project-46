@@ -32,3 +32,7 @@ make install
 ### Gendiff work example plain formatter
 
 [![asciicast](https://asciinema.org/a/qHka5Wi4tmQKdsQ7GDlB9p83t.svg)](https://asciinema.org/a/qHka5Wi4tmQKdsQ7GDlB9p83t)
+
+### Gendiff work example JSON formatter
+
+[![asciicast](https://asciinema.org/a/DzhuRsA3STHP1rU9MXuDi51cf.svg)](https://asciinema.org/a/DzhuRsA3STHP1rU9MXuDi51cf)
