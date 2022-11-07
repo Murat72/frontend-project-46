@@ -39,11 +39,11 @@ test('format Plain from YAML', () => {
 test('format Json from JSON', () => {
   const firstFile = getFixturePath('file1.json');
   const secondFile = getFixturePath('file2.json');
-  expect(gendiff(firstFile, secondFile, 'plain')).toBe(expectedJson);
+  expect(gendiff(firstFile, secondFile, 'json')).toBe(expectedJson);
 });
 
 test('format Json from YAML', () => {
   const firstFile = getFixturePath('file1.yaml');
   const secondFile = getFixturePath('file2.yml');
-  expect(gendiff(firstFile, secondFile, 'plain')).toBe(expectedJson);
+  expect(gendiff(firstFile, secondFile, 'json')).toBe(expectedJson);
 });
