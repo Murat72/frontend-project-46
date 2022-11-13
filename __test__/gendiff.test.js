@@ -18,10 +18,10 @@ test.each([extensions])('test gendfiff', (extension) => {
   const fileBefore = getFixturePath(`file1.${extension}`);
   const fileAfter = getFixturePath(`file2.${extension}`);
   
-  expect(gendiff(firstFile, secondFile)).toBe(expectedStylish);
-  expect(gendiff(firstFile, secondFile)).toBe(expectedStylish);
-  expect(gendiff(firstFile, secondFile, 'plain')).toBe(expectedPlain);
-  expect(gendiff(firstFile, secondFile, 'plain')).toBe(expectedPlain);
-  expect(gendiff(firstFile, secondFile, 'json')).toBe(expectedJson);
-  expect(gendiff(firstFile, secondFile, 'json')).toBe(expectedJson);
+  expect(gendiff(fileBefore, fileAfter)).toBe(expectedStylish);
+  expect(gendiff(fileBefore, fileAfter)).toBe(expectedStylish);
+  expect(gendiff(fileBefore, fileAfter, 'plain')).toBe(expectedPlain);
+  expect(gendiff(fileBefore, fileAfter, 'plain')).toBe(expectedPlain);
+  expect(gendiff(fileBefore, fileAfter, 'json')).toBe(expectedJson);
+  expect(gendiff(fileBefore, fileAfter, 'json')).toBe(expectedJson);
 });
