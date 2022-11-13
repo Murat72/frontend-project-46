@@ -12,7 +12,7 @@ const expectedStylish = readFile('expectedStylish.txt');
 const expectedPlain = readFile('expectedPlain.txt');
 const expectedJson = readFile('expectedJson.txt');
 
-const extensions = [yaml, json];
+const extensions = ['yaml', 'json'];
 
 test.each([extensions])('test gendfiff', (extension) => {
   const fileBefore = getFixturePath(`file1.${extension}`);
