@@ -6,7 +6,7 @@
 
 <a href="https://codeclimate.com/github/Murat72/frontend-project-46/test_coverage"><img src="https://api.codeclimate.com/v1/badges/96e072f7d7190e02c33d/test_coverage" /></a>
 
-### ИГРЫ РАЗУМА
+### DIFFERENCE CALCULATOR
 
 "Difference Calculator" is a program that determines the difference between two data structures. This is a popular task for which there are many online services, such as http://www.jsondiff.com/. A similar mechanism is used when outputting tests or when automatically tracking changes in configuration files.
 
@@ -15,7 +15,7 @@ Utility features:
 
 • Report generation in the form of plain text, stylish and json
 
-### Установка
+### INSTALL
 
 After cloning the project, run the following command in the terminal from the project directory:
 
