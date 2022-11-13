@@ -14,10 +14,12 @@ const expectedJson = readFile('expectedJson.txt');
 
 const extensions = ['json', 'yml'];
 
-test.each([extensions])('test gendfiff', (extension) => {
+test.each([
+  extensions
+])('test gendfiff', (extension) => {
   const fileBefore = getFixturePath(`file1.${extension}`);
   const fileAfter = getFixturePath(`file2.${extension}`);
-  
+
   expect(gendiff(fileBefore, fileAfter)).toBe(expectedStylish);
   expect(gendiff(fileBefore, fileAfter)).toBe(expectedStylish);
   expect(gendiff(fileBefore, fileAfter, 'plain')).toBe(expectedPlain);

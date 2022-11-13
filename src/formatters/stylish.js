@@ -10,11 +10,11 @@ const stringify = (data, depth) => {
   const lines = Object
     .entries(data)
     .map(([key, val]) => `${getIndent(depth)}  ${key}: ${stringify(val, depth + 1)}`);
-    return [
-      '{',
-      ...lines,
-      `${getBracketsIndent(depth)}}`,
-    ].join('\n');
+  return [
+    '{',
+    ...lines,
+    `${getBracketsIndent(depth)}}`,
+  ].join('\n');
 };
 
 const stylish = (tree) => {
