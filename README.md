@@ -8,16 +8,16 @@
 
 ### ИГРЫ РАЗУМА
 
-«Вычислитель отличий» — программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн сервисов, например http://www.jsondiff.com/. Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменении в конфигурационных файлах.
+"Difference Calculator" is a program that determines the difference between two data structures. This is a popular task for which there are many online services, such as http://www.jsondiff.com/. A similar mechanism is used when outputting tests or when automatically tracking changes in configuration files.
 
-Возможности утилиты:
-• Поддержка разных входных форматов: yaml, json
+Utility features:
+• Support for different input formats: yaml, json
 
-• Генерация отчета в виде plain text, stylish и json
+• Report generation in the form of plain text, stylish and json
 
 ### Установка
 
-После клонирования проекта выполнить в терминале из директории проекта следующую комманду:
+After cloning the project, run the following command in the terminal from the project directory:
 
 make install
 

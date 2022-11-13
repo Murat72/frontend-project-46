@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "type": "module",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/Murat72/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/Murat72/frontend-project-46/actions)",
+  "description": "Program that determines the difference between two data structures.",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
@@ -12,7 +12,7 @@
   "engines": {
     "node": ">=14"
   },
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "npx jest"
   },

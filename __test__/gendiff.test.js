@@ -12,38 +12,16 @@ const expectedStylish = readFile('expectedStylish.txt');
 const expectedPlain = readFile('expectedPlain.txt');
 const expectedJson = readFile('expectedJson.txt');
 
-test('fromat Stylish from JSON', () => {
-  const firstFile = getFixturePath('file1.json');
-  const secondFile = getFixturePath('file2.json');
+const extensions = [yaml, json];
+
+test.each([extensions])('test gendfiff', (extension) => {
+  const fileBefore = getFixturePath(`file1.${extension}`);
+  const fileAfter = getFixturePath(`file2.${extension}`);
+  
   expect(gendiff(firstFile, secondFile)).toBe(expectedStylish);
-});
-
-test('format Stylish from YAML', () => {
-  const firstFile = getFixturePath('file1.yaml');
-  const secondFile = getFixturePath('file2.yml');
   expect(gendiff(firstFile, secondFile)).toBe(expectedStylish);
-});
-
-test('format Plain from JSON', () => {
-  const firstFile = getFixturePath('file1.json');
-  const secondFile = getFixturePath('file2.json');
   expect(gendiff(firstFile, secondFile, 'plain')).toBe(expectedPlain);
-});
-
-test('format Plain from YAML', () => {
-  const firstFile = getFixturePath('file1.yaml');
-  const secondFile = getFixturePath('file2.yml');
   expect(gendiff(firstFile, secondFile, 'plain')).toBe(expectedPlain);
-});
-
-test('format Json from JSON', () => {
-  const firstFile = getFixturePath('file1.json');
-  const secondFile = getFixturePath('file2.json');
   expect(gendiff(firstFile, secondFile, 'json')).toBe(expectedJson);
-});
-
-test('format Json from YAML', () => {
-  const firstFile = getFixturePath('file1.yaml');
-  const secondFile = getFixturePath('file2.yml');
   expect(gendiff(firstFile, secondFile, 'json')).toBe(expectedJson);
 });
