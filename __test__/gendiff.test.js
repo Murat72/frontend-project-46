@@ -15,8 +15,8 @@ const expectedJson = readFile('expectedJson.txt');
 const extensions = ['json', 'yml'];
 
 test.each([
-  extensions
-])('test gendfiff', (extension) => {
+  extensions,
+])('gendfiff', (extension) => {
   const fileBefore = getFixturePath(`file1.${extension}`);
   const fileAfter = getFixturePath(`file2.${extension}`);
 
