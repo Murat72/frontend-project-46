@@ -21,7 +21,7 @@ test.each([
   const fileAfter = getFixturePath(`file2.${extension}`);
 
   expect(gendiff(fileBefore, fileAfter)).toBe(expectedStylish);
-  expect(gendiff(fileBefore, fileAfter, 'stylish')).toBe(expectedPlain);
+  expect(gendiff(fileBefore, fileAfter, 'stylish')).toBe(expectedStylish);
   expect(gendiff(fileBefore, fileAfter, 'plain')).toBe(expectedPlain);
   expect(gendiff(fileBefore, fileAfter, 'json')).toBe(expectedJson);
 });
